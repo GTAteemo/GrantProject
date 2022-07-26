@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Imgui">
+      <UniqueIdentifier>{16aa4583-8f3a-4807-b089-ba8b57fdd032}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="main">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Player">
+      <UniqueIdentifier>{7b839db1-bb72-42d1-92f1-735e821c4969}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Item">
+      <UniqueIdentifier>{fdc2daa5-9e40-472d-b2f0-be9fb9b22bd4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Threads">
+      <UniqueIdentifier>{67d2e7c2-f8c4-49e5-bd54-fee24ce16fb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Memory">
+      <UniqueIdentifier>{a5c574e4-8681-45b3-89cd-b4a09cc57ba8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Window">
+      <UniqueIdentifier>{25215d68-c50b-4d51-9547-dbfda76c482c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Visuals">
+      <UniqueIdentifier>{6a66742d-a5b9-4b80-97a3-f9572f7b3680}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{32cb4198-bd7b-42a2-8ec8-db7a61fe6e5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Globals">
+      <UniqueIdentifier>{ebc56bcf-4ed0-42e1-ba92-7b9cb4075798}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{e7612f7a-dacf-476c-887e-0243de581c21}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="Imgui\imgui.cpp">
+      <Filter>Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Imgui\imgui_demo.cpp">
+      <Filter>Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Imgui\imgui_draw.cpp">
+      <Filter>Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Imgui\imgui_impl_dx9.cpp">
+      <Filter>Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Imgui\imgui_impl_win32.cpp">
+      <Filter>Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Imgui\imgui_tables.cpp">
+      <Filter>Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Imgui\imgui_widgets.cpp">
+      <Filter>Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="math.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Imgui\imconfig.h">
+      <Filter>Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Imgui\imgui.h">
+      <Filter>Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Imgui\imgui_impl_dx9.h">
+      <Filter>Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Imgui\imgui_impl_win32.h">
+      <Filter>Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Imgui\imgui_internal.h">
+      <Filter>Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Imgui\imstb_rectpack.h">
+      <Filter>Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Imgui\imstb_textedit.h">
+      <Filter>Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Imgui\imstb_truetype.h">
+      <Filter>Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="communication.hpp">
+      <Filter>Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="kernelInterface.hpp">
+      <Filter>Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="xorstr.hpp">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="memory.hpp">
+      <Filter>Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="generateString.hpp">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="math.hpp">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="json.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="globals.hpp">
+      <Filter>Globals</Filter>
+    </ClInclude>
+    <ClInclude Include="includes.hpp">
+      <Filter>Globals</Filter>
+    </ClInclude>
+    <ClInclude Include="player.hpp">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="draw.hpp">
+      <Filter>Visuals</Filter>
+    </ClInclude>
+    <ClInclude Include="item.hpp">
+      <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="window.hpp">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="visuals.hpp">
+      <Filter>Visuals</Filter>
+    </ClInclude>
+    <ClInclude Include="menu.hpp">
+      <Filter>Visuals</Filter>
+    </ClInclude>
+    <ClInclude Include="threads.hpp">
+      <Filter>Threads</Filter>
+    </ClInclude>
+    <ClInclude Include="opticCameraReader.hpp">
+      <Filter>Threads</Filter>
+    </ClInclude>
+    <ClInclude Include="baseValues.hpp">
+      <Filter>Threads</Filter>
+    </ClInclude>
+    <ClInclude Include="bonesReader.hpp">
+      <Filter>Threads</Filter>
+    </ClInclude>
+    <ClInclude Include="therminalVision.hpp">
+      <Filter>Threads</Filter>
+    </ClInclude>
+    <ClInclude Include="violent.hpp">
+      <Filter>Threads</Filter>
+    </ClInclude>
+    <ClInclude Include="itemReader.h">
+      <Filter>Threads</Filter>
+    </ClInclude>
+    <ClInclude Include="playerReader.hpp">
+      <Filter>Threads</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="viewMatrixReader.hpp">
+      <Filter>Threads</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="utils.hpp">
+      <Filter>Utils</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Legend.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\aimware.ico" />
+  </ItemGroup>
+</Project>
