@@ -11,7 +11,7 @@ public:
 
 	ULONG PID = 0x0;
 	ULONG64 UnityPlayer = 0x0;
-	KeInterface Driver = KeInterface(_xor_("\\\\.\\BrilliantMiracleKN"));
+	KeInterface Driver = KeInterface(_xor_("\\\\.\\LegendKernel"));
 
 	bool init(char* processName)
 	{
@@ -21,16 +21,9 @@ public:
 			return false;
 		}
 
-
-		PID = Driver.GetTargetPid(processName, 1);
+		//online
+		PID = Driver.GetTargetPid(processName, 0);
 		if (!PID) return false;
-		/*for (size_t i = 0; i < 100; i++)
-		{
-			char* name = Driver.GetModuleNameIndex(PID, i);
-			ULONG64 addr = Driver.GetModuleIndex(PID, i);
-			if (!addr) break;
-			printf("Module Addr:%016I64x     Module Name: %s\n", addr, name);
-		}*/
 		return true;
 	}
 

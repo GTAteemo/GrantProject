@@ -1,5 +1,5 @@
 ;
-; BrilliantMiracleKN.inf
+; LegendKernel.inf
 ;
 
 [Version]
@@ -7,7 +7,7 @@ Signature="$WINDOWS NT$"
 Class=Sample ; TODO: edit Class
 ClassGuid={78A1C341-4539-11d3-B88D-00C04FAD5171} ; TODO: edit ClassGuid
 Provider=%ManufacturerName%
-CatalogFile=BrilliantMiracleKN.cat
+CatalogFile=LegendKernel.cat
 DriverVer= ; TODO: set DriverVer in stampinf property pages
 PnpLockDown=1
 
@@ -28,7 +28,7 @@ HKR,,Icon,,-5
 1 = %DiskName%,,,""
 
 [SourceDisksFiles]
-BrilliantMiracleKN.sys  = 1,,
+LegendKernel.sys  = 1,,
 WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll=1 ; make sure the number matches with SourceDisksNames
 
 ;*****************************************
@@ -39,25 +39,25 @@ WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll=1 ; make sure the number matches with
 %ManufacturerName%=Standard,NT$ARCH$
 
 [Standard.NT$ARCH$]
-%BrilliantMiracleKN.DeviceDesc%=BrilliantMiracleKN_Device, Root\BrilliantMiracleKN ; TODO: edit hw-id
+%LegendKernel.DeviceDesc%=BrilliantMiracleKN_Device, Root\LegendKernel ; TODO: edit hw-id
 
 [BrilliantMiracleKN_Device.NT]
 CopyFiles=Drivers_Dir
 
 [Drivers_Dir]
-BrilliantMiracleKN.sys
+LegendKernel.sys
 
 ;-------------- Service installation
 [BrilliantMiracleKN_Device.NT.Services]
-AddService = BrilliantMiracleKN,%SPSVCINST_ASSOCSERVICE%, BrilliantMiracleKN_Service_Inst
+AddService = LegendKernel,%SPSVCINST_ASSOCSERVICE%, BrilliantMiracleKN_Service_Inst
 
-; -------------- BrilliantMiracleKN driver install sections
+; -------------- LegendKernel driver install sections
 [BrilliantMiracleKN_Service_Inst]
-DisplayName    = %BrilliantMiracleKN.SVCDESC%
+DisplayName    = %LegendKernel.SVCDESC%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %12%\BrilliantMiracleKN.sys
+ServiceBinary  = %12%\LegendKernel.sys
 
 ;
 ;--- BrilliantMiracleKN_Device Coinstaller installation ------
@@ -74,7 +74,7 @@ HKR,,CoInstallers32,0x00010000, "WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll,WdfC
 WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll
 
 [BrilliantMiracleKN_Device.NT.Wdf]
-KmdfService =  BrilliantMiracleKN, BrilliantMiracleKN_wdfsect
+KmdfService =  LegendKernel, BrilliantMiracleKN_wdfsect
 [BrilliantMiracleKN_wdfsect]
 KmdfLibraryVersion = $KMDFVERSION$
 
@@ -82,6 +82,6 @@ KmdfLibraryVersion = $KMDFVERSION$
 SPSVCINST_ASSOCSERVICE= 0x00000002
 ManufacturerName="<Your manufacturer name>" ;TODO: Replace with your manufacturer name
 ClassName="Samples" ; TODO: edit ClassName
-DiskName = "BrilliantMiracleKN Installation Disk"
-BrilliantMiracleKN.DeviceDesc = "BrilliantMiracleKN Device"
-BrilliantMiracleKN.SVCDESC = "BrilliantMiracleKN Service"
+DiskName = "LegendKernel Installation Disk"
+LegendKernel.DeviceDesc = "LegendKernel Device"
+LegendKernel.SVCDESC = "LegendKernel Service"

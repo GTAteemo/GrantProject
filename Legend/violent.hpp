@@ -178,16 +178,22 @@ PVOID Violent()
 		{
 			mem.Write<Vector2>(movement_context + 0x22C, myView, sizeof(Vector2));
 
+			FVector _pPos = { 0,0,0 };
 			ULONG64 HandsContainer = mem.Read<ULONG64>(ProceduralWeaponAnimation + 0x18);
 			ULONG64 Recoil = mem.Read<ULONG64>(HandsContainer + 0x40);
-			mem.Write<float>(Recoil + 0x80, 0.0, sizeof(float)); // X
-			mem.Write<float>(Recoil + 0x88, 0.3, sizeof(float)); // y
+			//random recoil
+			mem.Write<FVector>(Recoil + 0x28, _pPos, sizeof(FVector));
+			mem.Write<FVector>(Recoil + 0x74, _pPos, sizeof(FVector));
+			mem.Write<FVector>(Recoil + 0x80, _pPos, sizeof(FVector));
+			//mem.Write<float>(Recoil + 0x80, 0.0, sizeof(float)); // X
+			//mem.Write<float>(Recoil + 0x88, 0.3, sizeof(float)); // y
 
-			ULONG64 SwaySpring = mem.Read<ULONG64>(HandsContainer + 0x58);
+			//枪的移动中的摆动，但是不是瞄准摆动
+			/*ULONG64 SwaySpring = mem.Read<ULONG64>(HandsContainer + 0x58);
 			FVector _pPos = { 0,0,0 };
 			mem.Write(SwaySpring + 0x10, _pPos, sizeof(FVector));
 			mem.Write(SwaySpring + 0x1C, _pPos, sizeof(FVector));
-			mem.Write(SwaySpring + 0x28, _pPos, sizeof(FVector));
+			mem.Write(SwaySpring + 0x28, _pPos, sizeof(FVector));*/
 
 			ULONG64 Breath = mem.Read<ULONG64>(ProceduralWeaponAnimation + 0x28);
 			mem.Write(Breath + 0xA4, 0.1f, sizeof(float)); //Intensity

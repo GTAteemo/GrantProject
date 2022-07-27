@@ -42,7 +42,7 @@
     <Configuration>Debug</Configuration>
     <Platform Condition="'$(Platform)' == ''">Win32</Platform>
     <RootNamespace>BriliantMiracleKN</RootNamespace>
-    <ProjectName>BrilliantMiracleKN</ProjectName>
+    <ProjectName>LegendKernel</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -144,16 +144,17 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <TreatWarningAsError>false</TreatWarningAsError>
+      <WarningLevel>Level3</WarningLevel>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Inf Include="BriliantMiracleKN.inf" />
+    <Inf Include="LegendKernel.inf" />
   </ItemGroup>
   <ItemGroup>
     <FilesToPackage Include="$(TargetPath)" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BrilliantMiracleKN.h" />
+    <ClInclude Include="LegendKernel.h" />
     <ClInclude Include="communication.h" />
     <ClInclude Include="data.h" />
     <ClInclude Include="events.h" />

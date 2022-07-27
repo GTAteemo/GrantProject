@@ -19,12 +19,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Inf Include="BriliantMiracleKN.inf">
+    <Inf Include="LegendKernel.inf">
       <Filter>Driver Files</Filter>
     </Inf>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BrilliantMiracleKN.h">
+    <ClInclude Include="LegendKernel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="communication.h">

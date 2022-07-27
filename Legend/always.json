@@ -1626,5 +1626,16 @@
         "price": 110000,
         "shortName": "GL-40",
         "updated": "2021-09-23T15:22:05.455Z"
+    },
+	 "60b0f988c4449e4cb624c1da": {
+        "avg24hPrice": 55044,
+        "avg7daysPrice": 58903,
+        "basePrice": 45000,
+        "id": "60b0f988c4449e4cb624c1da",
+        "img": "https://cdn.tarkov-market.app/images/items/evasion_armband_sm.png",
+        "name": "Evasion臂带",
+        "price": 51000,
+        "shortName": "Evasion",
+        "updated": "2022-07-11T01:52:51.724Z"
     }
 }
