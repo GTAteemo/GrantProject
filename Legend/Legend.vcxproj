@@ -161,6 +161,7 @@
     <ClInclude Include="bonesReader.hpp" />
     <ClInclude Include="communication.hpp" />
     <ClInclude Include="draw.hpp" />
+    <ClInclude Include="Exfiltration.hpp" />
     <ClInclude Include="generateString.hpp" />
     <ClInclude Include="globals.hpp" />
     <ClInclude Include="Imgui\imconfig.h" />
@@ -173,7 +174,7 @@
     <ClInclude Include="Imgui\imstb_truetype.h" />
     <ClInclude Include="includes.hpp" />
     <ClInclude Include="item.hpp" />
-    <ClInclude Include="itemReader.h" />
+    <ClInclude Include="itemReader.hpp" />
     <ClInclude Include="json.h" />
     <ClInclude Include="kernelInterface.hpp" />
     <ClInclude Include="math.hpp" />

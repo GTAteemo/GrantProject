@@ -197,6 +197,11 @@ void Render() {
         Globals::Vars::Bones = !Globals::Vars::Bones;
         Sleep(200);
     }
+    if (GetAsyncKeyState(VK_F8) && 0x1)
+    {
+        Globals::Vars::DrawExit = !Globals::Vars::DrawExit;
+        Sleep(200);
+    }
     /*DrawRect(1, WindowHeight / 3, 180, 160, &Col.yellow, 2);
     DrawMenuText(10, WindowHeight / 3 + 20, Globals::ExpensiveLoot ? &Col.yellow : &Col.red, Globals::ExpensiveLoot ? "F1:ExpensiveLoot TRUE" : "F1:ExpensiveLoot FALSE", 15);
     DrawMenuText(10, WindowHeight / 3 + 40, Globals::Foods ? &Col.yellow : &Col.red, Globals::Foods ? "F2:Foods TRUE" : "F2:Foods FALSE", 15);

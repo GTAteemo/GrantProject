@@ -7,6 +7,7 @@ class InItem {
 public:
 	string id;
 	string name;
+	RGBA color = Col.white;
 	int role;
 };
 
@@ -29,6 +30,7 @@ public:
 	int  role = 0;
 	bool isContainer;
 	bool haveExp = false;
+	RGBA color = Col.white;
 
 	vector<InItem> inItems;
 

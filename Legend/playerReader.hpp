@@ -171,7 +171,11 @@ PVOID PlayerReader()
 			}
 			if (mem.Read<bool>(CurrentPlayerList[i].instance + (0x807)))
 			{
-				cout << hex << CurrentPlayerList[i].instance << endl;
+				//cout << hex << CurrentPlayerList[i].instance << endl;
+				if (!CurrentPlayerList[i].IsPMC())
+				{
+					Globals::Player::IsPmc = false;
+				}
 				Globals::Player::LocalPlayer = CurrentPlayerList[i].instance;
 				Globals::Player::LocalPlayerPos = CurrentPlayerList[i].location;
 				Globals::Player::LocalHeadPos = CurrentPlayerList[i].headPosition;

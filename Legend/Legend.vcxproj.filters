@@ -35,6 +35,9 @@
     <Filter Include="Resources">
       <UniqueIdentifier>{e7612f7a-dacf-476c-887e-0243de581c21}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Exfiltration">
+      <UniqueIdentifier>{6e86f4a0-45bd-4ec6-8a70-1a5d78693352}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -153,7 +156,7 @@
     <ClInclude Include="violent.hpp">
       <Filter>Threads</Filter>
     </ClInclude>
-    <ClInclude Include="itemReader.h">
+    <ClInclude Include="itemReader.hpp">
       <Filter>Threads</Filter>
     </ClInclude>
     <ClInclude Include="playerReader.hpp">
@@ -162,6 +165,9 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="viewMatrixReader.hpp">
       <Filter>Threads</Filter>
+    </ClInclude>
+    <ClInclude Include="Exfiltration.hpp">
+      <Filter>Exfiltration</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

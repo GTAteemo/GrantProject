@@ -19,6 +19,13 @@ typedef struct
 	DWORD A;
 }RGBA;
 
+class ItemText
+{
+public:
+	RGBA color;
+	string Text;
+};
+
 class Color
 {
 public:
@@ -497,22 +504,22 @@ void DrawMiniMap(ImVec2 MiniMapPos, float fov, float MiniMapSize)
 
 	DrawCircle(MiniMapPos.x, MiniMapPos.y, MiniMapSize, &Col.black, 0);
 }
-void DrawRectCenter(vector<string> Texts, float x, float y, RGBA* color)
+void DrawRectCenter(vector<ItemText> Texts, float x, float y)
 {
 	float fontSize = 13.f;
 	float width = 0;
 	float heigth = fontSize * Texts.size();
 	float posy = y;
-	for (string str : Texts)
+	for (ItemText it : Texts)
 	{
 		float posx = x;
-		ImVec2 textSize = ImGui::CalcTextSize(str.c_str());
+		ImVec2 textSize = ImGui::CalcTextSize(it.Text.c_str());
 		posx = posx - textSize.x / 2;
-		ImGui::GetForegroundDrawList()->AddText(ImGui::GetFont(), fontSize, ImVec2(posx, posy - 1), ImGui::ColorConvertFloat4ToU32(ImVec4(0, 0, 0, 1)), str.c_str());
-		ImGui::GetForegroundDrawList()->AddText(ImGui::GetFont(), fontSize, ImVec2(posx, posy + 1), ImGui::ColorConvertFloat4ToU32(ImVec4(0, 0, 0, 1)), str.c_str());
-		ImGui::GetForegroundDrawList()->AddText(ImGui::GetFont(), fontSize, ImVec2(posx - 1, posy), ImGui::ColorConvertFloat4ToU32(ImVec4(0, 0, 0, 1)), str.c_str());
-		ImGui::GetForegroundDrawList()->AddText(ImGui::GetFont(), fontSize, ImVec2(posx + 1, posy), ImGui::ColorConvertFloat4ToU32(ImVec4(0, 0, 0, 1)), str.c_str());
-		ImGui::GetForegroundDrawList()->AddText(ImGui::GetFont(), fontSize, ImVec2(posx, posy), ImColor(color->R, color->G, color->B, 255), str.c_str(), 0, 0.0f, 0);
+		ImGui::GetForegroundDrawList()->AddText(ImGui::GetFont(), fontSize, ImVec2(posx, posy - 1), ImGui::ColorConvertFloat4ToU32(ImVec4(0, 0, 0, 1)), it.Text.c_str());
+		ImGui::GetForegroundDrawList()->AddText(ImGui::GetFont(), fontSize, ImVec2(posx, posy + 1), ImGui::ColorConvertFloat4ToU32(ImVec4(0, 0, 0, 1)), it.Text.c_str());
+		ImGui::GetForegroundDrawList()->AddText(ImGui::GetFont(), fontSize, ImVec2(posx - 1, posy), ImGui::ColorConvertFloat4ToU32(ImVec4(0, 0, 0, 1)), it.Text.c_str());
+		ImGui::GetForegroundDrawList()->AddText(ImGui::GetFont(), fontSize, ImVec2(posx + 1, posy), ImGui::ColorConvertFloat4ToU32(ImVec4(0, 0, 0, 1)), it.Text.c_str());
+		ImGui::GetForegroundDrawList()->AddText(ImGui::GetFont(), fontSize, ImVec2(posx, posy), ImColor(it.color.R, it.color.G, it.color.B, 255), it.Text.c_str(), 0, 0.0f, 0);
 		posy += textSize.y;
 		if (textSize.x > width)
 		{

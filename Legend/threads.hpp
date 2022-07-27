@@ -1,6 +1,7 @@
 #pragma once
 #include "player.hpp"
 #include "item.hpp"
+#include "Exfiltration.hpp"
 #include "json.h"
 #include <map>;
 
@@ -25,6 +26,9 @@ D2D1_POINT_2F locationS;
 std::vector<Item> ItemsTemp;
 std::vector<Item> ItemsList;
 
+std::vector<ExfilTration> ExfilTrationTemp;
+std::vector<ExfilTration> ExfilTrationList;
+
 /*bonesReader*/
 vector<ULONG64> PlayerBoneseTemp;
 vector<Player> CurrentPlayerBonese;
@@ -36,6 +40,6 @@ vector<Player> PlayerBonese;
 #include "bonesReader.hpp"
 #include "therminalVision.hpp"
 #include "violent.hpp"
-#include "itemReader.h"
+#include "itemReader.hpp"
 #include "playerReader.hpp"
 #include "viewMatrixReader.hpp"

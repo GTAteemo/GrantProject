@@ -36,7 +36,7 @@ D2D1_POINT_2F vRightFootOut;
 D2D1_POINT_2F PelvisOut;
 
 char volocity[256];
-vector<string> DrawPlayerTexts;
+vector<ItemText> DrawPlayerTexts;
 void DrawPlayers() {
 
 	sprintf_s(nameBuf, "[当前实体数量:%d]", Globals::Player::PlayerCount);
@@ -86,27 +86,36 @@ void DrawPlayers() {
 		//DrawNormalBox(player_screen.x - (BoxWidth / 2), player_screenHead.y, BoxWidth, BoxHeight, 1, &Col.red);
 
 		DrawCircle(player_screenHead.x, player_screenHead.y, BoxHeight / 15, &Col.yellow, 100);
+		ItemText it;
+		it.color = Col.darkgreen;
 		sprintf(nameBuf, u8"%s", player.name.c_str());
-		DrawPlayerTexts.push_back(nameBuf);
+		it.Text = nameBuf;
+		DrawPlayerTexts.push_back(it);
 		sprintf(healBuf, u8"血量:%0.0f", player.health);
-		DrawPlayerTexts.push_back(healBuf);
+		it.Text = healBuf;
+		DrawPlayerTexts.push_back(it);
 		sprintf_s(distBuf, u8"距离:[%0.f米]", player.distance);
-		DrawPlayerTexts.push_back(distBuf);
-		sprintf_s(expBuf, u8"等级:%d", player.experience);
-		DrawPlayerTexts.push_back(expBuf);
+		it.Text = distBuf;
+		DrawPlayerTexts.push_back(it);
+		sprintf(weaponBuf, u8"武器:%s", player.weapon.c_str());
+		it.Text = weaponBuf;
+		DrawPlayerTexts.push_back(it);
 		if (player.isPlayer)
 		{
+			sprintf_s(expBuf, u8"等级:%d", player.experience);
+			it.Text = expBuf;
+			DrawPlayerTexts.push_back(it);
 			sprintf(KDBuf, u8"KD:%0.1f", player.KD);
-			DrawPlayerTexts.push_back(KDBuf);
+			it.Text = KDBuf;
+			DrawPlayerTexts.push_back(it);
+			sprintf(memBuf, u8"分类:%s", player.MemberCategory.c_str());
+			it.Text = memBuf;
+			DrawPlayerTexts.push_back(it);
 		}
-		sprintf(weaponBuf, u8"武器:%s", player.weapon.c_str());
-		DrawPlayerTexts.push_back(weaponBuf);
-		sprintf(memBuf, u8"分类:%s", player.MemberCategory.c_str());
-		DrawPlayerTexts.push_back(memBuf);
-
 		if (player.GroupId == Globals::Player::LocalPlayerGroup)
 		{
-			DrawPlayerTexts.push_back(u8"傻逼队友");
+			it.Text = u8"傻逼队友";
+			DrawPlayerTexts.push_back(it);
 		}
 		else
 		{
@@ -115,12 +124,13 @@ void DrawPlayers() {
 			if (iter != GroupMap.end()) {
 				char gp = iter->second;
 				sprintf(GroupBuf, u8"队伍:%c", gp);
-				DrawPlayerTexts.push_back(GroupBuf);
+				it.Text = GroupBuf;
+				DrawPlayerTexts.push_back(it);
 			}
 		}
 
 		DrawProgressBar(player_screenHead.x, player_screenHead.y - 15, player.health, player.maxHealth);
-		DrawRectCenter(DrawPlayerTexts, player_screen.x, player_screen.y + 5, &Col.darkgreen);
+		DrawRectCenter(DrawPlayerTexts, player_screen.x, player_screen.y + 5);
 		DrawPlayerAimLine(player.headPosition, player.ViewAngles, 3);
 	}
 
@@ -175,7 +185,7 @@ void DrawPlayers() {
 D2D1_POINT_2F item_screen;
 char itemBuf[256];
 char disBuf[256];
-vector<string> ItemTexts;
+vector<ItemText> ItemTexts;
 void DrawItems() {
 
 
@@ -193,32 +203,47 @@ void DrawItems() {
 				{
 					showContainer = true;
 					sprintf_s(itemBuf, u8"%s", inItem.name.c_str());
-					ItemTexts.push_back(itemBuf);
+					ItemText it;
+					it.Text = itemBuf;
+					it.color = inItem.color;
+					ItemTexts.push_back(it);
 				}
 				else if (inItem.role == 3 && Globals::Vars::ExpensiveLoot)
 				{
 					showContainer = true;
 					sprintf_s(itemBuf, u8"%s", inItem.name.c_str());
-					ItemTexts.push_back(itemBuf);
+					ItemText it;
+					it.Text = itemBuf;
+					it.color = inItem.color;
+					ItemTexts.push_back(it);
 				}
 				else if (inItem.role == 2 && Globals::Vars::Foods)
 				{
 					showContainer = true;
 					sprintf_s(itemBuf, u8"%s", inItem.name.c_str());
-					ItemTexts.push_back(itemBuf);
+					ItemText it;
+					it.Text = itemBuf;
+					it.color = inItem.color;
+					ItemTexts.push_back(it);
 				}
 				else if (Globals::Vars::Others)
 				{
 					showContainer = true;
 					sprintf_s(itemBuf, u8"%s", inItem.name.c_str());
-					ItemTexts.push_back(itemBuf);
+					ItemText it;
+					it.Text = itemBuf;
+					it.color = inItem.color;
+					ItemTexts.push_back(it);
 				}
 			}
 			if (showContainer)
 			{
 				sprintf_s(disBuf, u8"[. %0.0f]", item.distance);
-				ItemTexts.push_back(disBuf);
-				DrawRectCenter(ItemTexts, item_screen.x, item_screen.y + 5, &Col.white);
+				ItemText it;
+				it.Text = disBuf;
+				it.color = Col.white;
+				ItemTexts.push_back(it);
+				DrawRectCenter(ItemTexts, item_screen.x, item_screen.y + 5);
 			}
 		}
 		else
@@ -226,29 +251,51 @@ void DrawItems() {
 			if (item.role == 4)
 			{
 				sprintf_s(itemBuf, u8"[%s %0.0fm]", item.name.c_str(), item.distance);
-				ItemTexts.push_back(itemBuf);
+				ItemText it;
+				it.Text = itemBuf;
+				it.color = item.color;
+				ItemTexts.push_back(it);
 			}
-			if (item.role == 3 && Globals::Vars::ExpensiveLoot)
+			else if (item.role == 3 && Globals::Vars::ExpensiveLoot)
 			{
 				sprintf_s(itemBuf, u8"[%s %0.0fm]", item.name.c_str(), item.distance);
-				ItemTexts.push_back(itemBuf);
+				ItemText it;
+				it.Text = itemBuf;
+				it.color = item.color;
+				ItemTexts.push_back(it);
 			}
 			else if (item.role == 2 && Globals::Vars::Foods)
 			{
 				sprintf_s(itemBuf, u8"[%s %0.0fm]", item.name.c_str(), item.distance);
-				ItemTexts.push_back(itemBuf);
+				ItemText it;
+				it.Text = itemBuf;
+				it.color = item.color;
+				ItemTexts.push_back(it);
 			}
 			else if (Globals::Vars::Others)
 			{
 				sprintf_s(itemBuf, u8"[%s %0.0fm]", item.name.c_str(), item.distance);
-				ItemTexts.push_back(itemBuf);
+				ItemText it;
+				it.Text = itemBuf;
+				it.color = item.color;
+				ItemTexts.push_back(it);
 			}
 			if (ItemTexts.size() > 0)
 			{
-				DrawRectCenter(ItemTexts, item_screen.x, item_screen.y + 5, &Col.white);
+				DrawRectCenter(ItemTexts, item_screen.x, item_screen.y + 5);
 			}
 		}
 	}
+	if (Globals::Vars::DrawExit)
+	{
+		for (auto exit : ExfilTrationList)
+		{
+			if (!Utils::Camera::WorldToScreenv(exit.location, item_screen)) continue;
+			sprintf_s(itemBuf, u8"[%s]", exit.name.c_str());
+			DrawStrokeText(item_screen.x, item_screen.y, &Col.white, itemBuf);
+		}
+	}
+	
 }
 
 char myViewBuff[255];
@@ -301,9 +348,9 @@ void DrawAimLine() {
 	DrawCircle(WindowWidth / 2, WindowHeight / 2, Globals::Vars::AimbotFov, &Col.blue, 0);
 }
 
-ImVec2 mapPos{ 400,400 };
+ImVec2 mapPos{ 250, 300 };
 float fov = 110.f;
-float mapSize = 250.f;
+float mapSize = 200.f;
 float maxDistance = 300.f;
 void DrawMiniMap() {
 	if (!Globals::Vars::DrawMinimap)
@@ -313,7 +360,7 @@ void DrawMiniMap() {
 	for (auto player : PlayerList) {
 		if (player.instance == Globals::Player::LocalPlayer)
 		{
-			DrawCircleArror(ImVec2{ mapPos.x,mapPos.y }, 90.f, 7, 60.f, &Col.yellow);
+			//DrawCircleArror(ImVec2{ mapPos.x,mapPos.y }, 90.f, 7, 60.f, &Col.yellow);
 			continue;
 		}
 		if (player.GroupId == Globals::Player::LocalPlayerGroup)
@@ -330,8 +377,12 @@ void DrawMiniMap() {
 			{
 				clr = Col.pink;
 			}
-			else {
+			else if (player.role > 3){
 				clr = Col.red;
+			}
+			else
+			{
+				clr = Col.yellow;
 			}
 		}
 		FVector target = player.location;

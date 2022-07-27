@@ -38,6 +38,7 @@ namespace Globals {
 		bool Bones = true;
 		bool PlayerEsp = true;
 		bool DrawMinimap = true;
+		bool DrawExit = false;
 		//aimbot update
 		int Aimbot = 0;
 
@@ -63,6 +64,7 @@ namespace Globals {
 		bool LocalPlayerAiming;
 		std::string LocalPlayerGroup;
 		FVector MyFirePortPos;
+		bool IsPmc = true;
 	}
 	namespace Loot {
 		int LootCount;

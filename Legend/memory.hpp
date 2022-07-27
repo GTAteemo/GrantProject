@@ -22,7 +22,7 @@ public:
 		}
 
 		//online
-		PID = Driver.GetTargetPid(processName, 0);
+		PID = Driver.GetTargetPid(processName, 1);
 		if (!PID) return false;
 		return true;
 	}
